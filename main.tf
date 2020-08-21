@@ -11,43 +11,43 @@ terraform {
 provider "azurerm" {}
 
 # Create a resource group
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "rg1" {
   name     = "${var.prefix}TFRG"
   location = var.location
   tags     = var.tags
 }
 
 # Create virtual network
-resource "azurerm_virtual_network" "vnet" {
+resource "azurerm_virtual_network" "vnet1" {
   name                = "${var.prefix}TFVnet"
   address_space       = ["10.0.0.0/16"]
   location            = var.location
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = azurerm_resource_group.rg1.name
   tags                = var.tags
 }
 
 # Create subnet
-resource "azurerm_subnet" "subnet" {
+resource "azurerm_subnet" "subnet1" {
   name                 = "${var.prefix}TFSubnet"
-  resource_group_name  = azurerm_resource_group.rg.name
-  virtual_network_name = azurerm_virtual_network.vnet.name
+  resource_group_name  = azurerm_resource_group.rg1.name
+  virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefixes     = ["10.0.1.0/24"]
 }
 
 # Create public IP
-resource "azurerm_public_ip" "publicip" {
+resource "azurerm_public_ip" "publicip1" {
   name                = "${var.prefix}TFPublicIP"
   location            = var.location
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = azurerm_resource_group.rg1.name
   allocation_method   = "Dynamic"
   tags                = var.tags
 }
 
 # Create Network Security Group and rule
-resource "azurerm_network_security_group" "nsg" {
+resource "azurerm_network_security_group" "nsg1" {
   name                = "${var.prefix}TFNSG"
   location            = var.location
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = azurerm_resource_group.rg1.name
   tags                = var.tags
 
   security_rule {
@@ -64,31 +64,31 @@ resource "azurerm_network_security_group" "nsg" {
 }
 
 # Create network interface
-resource "azurerm_network_interface" "nic" {
+resource "azurerm_network_interface" "nic1" {
   name                      = "${var.prefix}NIC"
   location                  = var.location
-  resource_group_name       = azurerm_resource_group.rg.name
+  resource_group_name       = azurerm_resource_group.rg1.name
   tags                      = var.tags
 
   ip_configuration {
     name                          = "${var.prefix}NICConfg"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "dynamic"
-    public_ip_address_id          = azurerm_public_ip.publicip.id
+    public_ip_address_id          = azurerm_public_ip.publicip1.id
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "nic-nsg" {
-  network_interface_id      = azurerm_network_interface.nic.id
-  network_security_group_id = azurerm_network_security_group.nsg.id
+resource "azurerm_network_interface_security_group_association" "nic1-nsg1" {
+  network_interface_id      = azurerm_network_interface.nic1.id
+  network_security_group_id = azurerm_network_security_group.nsg1.id
 }
 
 # Create a Linux virtual machine
-resource "azurerm_virtual_machine" "vm" {
+resource "azurerm_virtual_machine" "vm1" {
   name                  = "${var.prefix}TFVM"
   location              = var.location
-  resource_group_name   = azurerm_resource_group.rg.name
-  network_interface_ids = [azurerm_network_interface.nic.id]
+  resource_group_name   = azurerm_resource_group.rg1.name
+  network_interface_ids = [azurerm_network_interface.nic1.id]
   vm_size               = "Standard_DS1_v2"
   tags                  = var.tags
 
@@ -118,10 +118,10 @@ resource "azurerm_virtual_machine" "vm" {
 
 }
 
-data "azurerm_public_ip" "ip" {
-  name                = azurerm_public_ip.publicip.name
-  resource_group_name = azurerm_virtual_machine.vm.resource_group_name
-  depends_on = ["azurerm_virtual_machine.vm"]
+data "azurerm_public_ip" "ip1" {
+  name                = azurerm_public_ip.publicip1.name
+  resource_group_name = azurerm_virtual_machine.vm1.resource_group_name
+  depends_on = ["azurerm_virtual_machine.vm1"]
 }
 
 output "os_sku" {
