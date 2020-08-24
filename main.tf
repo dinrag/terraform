@@ -8,7 +8,7 @@ provider "azurerm" {
 
 #create resource group
 resource "azurerm_resource_group" "rg" {
-  
+  count = 2
     name     = "rg-${var.system}"
     location = var.location
     tags      = {
