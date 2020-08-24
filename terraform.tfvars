@@ -5,7 +5,7 @@
 system = "terraexample1"
 servername = "vmterra123"
 location = "westus"
-numbercount = 1
+
 
 admin_username = "terraadmin"
 admin_password = "S3cur3P@ssw0rd"
