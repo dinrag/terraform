@@ -38,8 +38,7 @@ variable "location" {
     default = "westus2"
 
 }
-variable "numbercount" {
-    type = number
+
 
 variable "admin_username" {
     type = string
