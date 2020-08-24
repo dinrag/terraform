@@ -14,10 +14,7 @@ resource "azurerm_resource_group" "rg" {
     tags      = {
       Environment = var.system
     }
-  tags = {
-    name = "testvm${count.index}"
-}
-
+ 
 #Create virtual network
 resource "azurerm_virtual_network" "vnet" {
     name                = "vnet-dev-${var.location}-001"
