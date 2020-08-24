@@ -39,9 +39,6 @@ variable "location" {
 
 }
 
-variable "numbercount" {
-    type 	  = number
-} 
 
 
 variable "admin_username" {
