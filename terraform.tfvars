@@ -3,7 +3,7 @@
   client_secret   = "Nkdox_DkC~XAtb6xPI0k59Wu7.qrE6qCs_"
   tenant_id       = "70765d76-0633-4af1-8b6e-c7543d557969"
 system = "terraexample1"
-servername = "vmterra3"
+servername = "vmterraforms"
 location = "eastus1"
 numbercount = 1
 admin_username = "terraadmin"
