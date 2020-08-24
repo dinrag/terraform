@@ -31,7 +31,7 @@ resource "azurerm_subnet" "subnet" {
   address_prefix       = "10.0.0.0/24"
 }
 
-# Create public IP
+# Create public IP 
 resource "azurerm_public_ip" "publicip" {
   name                = "pip-${var.servername}-dev-${var.location}-001"
   location            = azurerm_resource_group.rg.location
