@@ -3,10 +3,8 @@
   client_secret   = "Nkdox_DkC~XAtb6xPI0k59Wu7.qrE6qCs_"
   tenant_id       = "70765d76-0633-4af1-8b6e-c7543d557969"
 system = "terraexample1"
-servername = "vmterr"
-location = "westus1"
-
-
+servername = "vmterr2"
+location = "westus2"
 admin_username = "terraadmin"
 admin_password = "S3cur3P@ssw0rd"
 vnet_address_space = ["10.0.0.0/16","10.1.0.0/16"]
