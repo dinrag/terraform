@@ -4,7 +4,7 @@
   tenant_id       = "70765d76-0633-4af1-8b6e-c7543d557969"
 system = "terraexample1"
 servername = "vmterr"
-location = "westus"
+location = "westus1"
 
 
 admin_username = "terraadmin"
