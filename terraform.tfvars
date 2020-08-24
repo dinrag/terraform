@@ -5,7 +5,7 @@
 system = "terraexample1"
 servername = "vmterraforms"
 location = "eastus1"
-numbercount = 1
+
 admin_username = "terraadmin"
 admin_password = "S3cur3P@ssw0rd"
 vnet_address_space = ["10.0.0.0/16","10.1.0.0/16"]
