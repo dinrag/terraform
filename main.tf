@@ -34,6 +34,7 @@ resource "azurerm_subnet" "subnet" {
 
 # Create public IP 
 resource "azurerm_public_ip" "publicip" {
+  
   name                = "pip-${var.servername}-dev-${var.location}-001"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -77,8 +78,8 @@ resource "azurerm_network_interface" "nic" {
 
 # Create virtual machine
 resource "azurerm_virtual_machine" "vm" {
-  name                  = var.servername
-  
+  name                  = var.servername-${count.index}
+  count                = var.numbercount
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]
