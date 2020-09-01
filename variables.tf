@@ -1,23 +1,23 @@
 
   variable "subscription_id" {
     type = "string"
-    default = "subscription_id"
+    default = "04218b49-c131-4220-9e3a-a764267ec388"
   }
 
   variable "client_id" {
     type = "string"
-    default = "client_id"
+    default = "06a0da35-7cb5-4db0-9d9e-dec956948aa4"
   }
 
   variable "client_secret" {
     type = "string"
-    default = "client_secret"
+    default = "qu102NjCThl4ze-Idef84TP0S2nNLTujCj"
     
   }
 
   variable "tenant_id" {
     type = "string"
-    default = "tenant_id"
+    default = "d408569e-a5c1-4f3a-9821-fbb801617804"
   }
 
 
@@ -25,11 +25,13 @@
 variable "system" {
     type = string
     description = "Name of the system or environment"
+    default = "terraexample2"
 }
 
 variable "servername" {
     type = string
     description = "Server name of the virtual machine"
+    default = "vm-terraform2"
 }
 
 variable "location" {
@@ -44,11 +46,13 @@ variable "location" {
 variable "admin_username" {
     type = string
     description = "Administrator username for server"
+    default = "terraadmin"
 }
 
 variable "admin_password" {
     type = string
     description = "Administrator password for server"
+    default = "S3cur3P@ssw0rd"
 }
 
 variable "vnet_address_space" { 
@@ -81,4 +85,11 @@ variable "os" {
         sku = string
         version = string
   })
+  
+  default = {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04.0-LTS"
+    version   = "latest"
+}
 }      
