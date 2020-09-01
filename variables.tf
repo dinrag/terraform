@@ -1,23 +1,23 @@
 
   variable "subscription_id" {
     type = "string"
-    default = "04218b49-c131-4220-9e3a-a764267ec388"
+    default = "dbbc0b3e-8e57-4c11-8135-a3192efc6e64"
   }
 
   variable "client_id" {
     type = "string"
-    default = "06a0da35-7cb5-4db0-9d9e-dec956948aa4"
+    default = "dc0413ab-1b06-411d-8b58-27733c29b6a9"
   }
 
   variable "client_secret" {
     type = "string"
-    default = "qu102NjCThl4ze-Idef84TP0S2nNLTujCj"
+    default = "z6~u598~6vvoYfvSZYA32zLf_LvZ7w74_L"
     
   }
 
   variable "tenant_id" {
     type = "string"
-    default = "d408569e-a5c1-4f3a-9821-fbb801617804"
+    default = "21252e3f-06d1-4864-bec1-9d0f50512eb5"
   }
 
 
