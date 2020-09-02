@@ -1,0 +1,5 @@
+resource_group_name   = "tstate"
+storage_account_name = "tstate32257"
+container_name = "tstate"
+access_key = "QG9HAqN44CDHKRtMOFjAN/2o63slo9QyhrHvHToQiXwo1ln4ApLrzVe2myL5zNEG2sw5JxFzMmPGTLX8OMnTsQ=="
+key = "terraform.tfstate"
