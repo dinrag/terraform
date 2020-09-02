@@ -6,6 +6,12 @@ provider "azurerm" {
   tenant_id       = "${var.tenant_id}"
 }
 
+terraform {
+  backend "azurerm" {
+  }
+}
+
+
 #create resource group
 resource "azurerm_resource_group" "rg" {
  
